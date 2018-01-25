@@ -3,6 +3,8 @@
  */
 package com.dharbor.industrialsecurity.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.OneToOne;
@@ -11,7 +13,9 @@ import javax.persistence.OneToOne;
 public class SubCategory extends ModelBase {
     private String name;
     private String code;
+
     @OneToOne(fetch = FetchType.EAGER)
+    @JsonIgnoreProperties("subCategory")
     private Category category;
 
     public String getName() {

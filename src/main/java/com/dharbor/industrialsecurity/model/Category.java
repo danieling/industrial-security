@@ -3,6 +3,8 @@
  */
 package com.dharbor.industrialsecurity.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import java.util.HashSet;
@@ -14,6 +16,7 @@ public class Category extends ModelBase {
     private String code;
 
     @OneToMany(mappedBy = "category")
+    @JsonIgnoreProperties("category")
     private Set<SubCategory> subCategory = new HashSet<>();
 
     public String getName() {
