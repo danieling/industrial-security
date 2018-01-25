@@ -3,10 +3,9 @@
  */
 package com.dharbor.industrialsecurity.model;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.OneToMany;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -17,10 +16,12 @@ public class Employee extends ModelBase {
     private String image;
     private String jobPosition;
     private String jobCode;
-    private Boolean featured;
+    private boolean featured;
+    @Column(length = 1000)
     private String jobDescription;
 
     @OneToMany(mappedBy = "employee", fetch = FetchType.EAGER, cascade = { CascadeType.ALL })
+    @JsonIgnoreProperties("employee")
     private Set<Contract> contracts = new HashSet<>();
 
     public Employee(){}
@@ -49,11 +50,11 @@ public class Employee extends ModelBase {
         this.jobCode = jobCode;
     }
 
-    public Boolean getFeatured() {
+    public boolean getFeatured() {
         return featured;
     }
 
-    public void setFeatured(Boolean featured) {
+    public void setFeatured(boolean featured) {
         this.featured = featured;
     }
 
@@ -65,7 +66,7 @@ public class Employee extends ModelBase {
         this.jobDescription = jobDescription;
     }
 
-    public Employee(String firstName, String lastName, String image, String jobPosition, String jobCode, Boolean featured, String jobDescription, Set<Contract> contracts) {
+    public Employee(String firstName, String lastName, String image, String jobPosition, String jobCode, boolean featured, String jobDescription, Set<Contract> contracts) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.image = image;

@@ -348,27 +348,110 @@ public class DevBootstrap implements ApplicationListener<ContextRefreshedEvent> 
         comment5.setItem(gloves);
         commentRepository.save(comment5);
 
-        // John Employee
-        Employee john = new Employee();
-        john.setFirstName("John");
-        john.setLastName("Doe");
+        // Valentin Employee
+        Employee valentin = new Employee();
+        valentin.setFirstName("Valentin");
+        valentin.setLastName("Laime");
+        valentin.setImage("/assets/images/valentin.jpg");
+        valentin.setJobCode("CEO");
+        valentin.setFeatured(true);
+        valentin.setJobDescription("El CEO, esta encargado de dirigir la empresa para conseguir los objetivos alineados con las estrategias de la empresa. Su rol fundamental es marcar las estrategias a seguir cuidando que los indicadores relacionados se cumplan y de ser necesario proponer nuevas estrategias que permitan a la empresa adaptarse al mercado.");
+
+        // Anabel Employee
+        Employee anabel = new Employee();
+        anabel.setFirstName("Anabel");
+        anabel.setLastName("Angus");
+        anabel.setImage("/assets/images/anabel.jpg");
+        anabel.setJobCode("CTO");
+        anabel.setJobDescription("El CTO, tiene la function de garantizar la calidad de los productos de software cuidando que los recursos utiliados sean adecuados en terminos de tiempo, costo y recurso, de manera que la satisfaccion del cliente este asegurada.");
+
+        // Jlaw Employee
+        Employee jlaw = new Employee();
+        jlaw.setFirstName("Jennifer");
+        jlaw.setLastName("Lawrence");
+        jlaw.setImage("/assets/images/jlaw.jpg");
+        jlaw.setJobCode("CTO");
+        jlaw.setJobDescription("Tiene la function de dirigir los projectos de software garantizando que se utilice adecuadamente la major tecnologia disponible, y tambien debe garantizar la calidad de todo el equipo del projecto");
+
+        // MIla Employee
+        Employee mila = new Employee();
+        mila.setFirstName("Maria");
+        mila.setLastName("Dupleich");
+        mila.setImage("/assets/images/mila.jpg");
+        mila.setJobCode("CTO");
+        mila.setJobDescription("Tiene la function de dirigir los projectos de software garantizando que se utilice adecuadamente la major tecnologia disponible, y tambien debe garantizar la calidad de todo el equipo del projecto");
+
+        // Kylie Employee
+        Employee kylie = new Employee();
+        kylie.setFirstName("Kylie");
+        kylie.setLastName("Kross");
+        kylie.setImage("/assets/images/kylie.jpg");
+        kylie.setJobCode("EC");
+        kylie.setJobDescription("Debe garantizar que la experiencia del usuario al estar frente al priducto de software sea loa mas agradable possible, cuidando que la usabilidad del producto sea maximizada, debe diseñar los flujos proponiendo nuevos procesos que agilicen los actuals antes de la implementacion de las nuevas funcionalidades.");
 
         // Position
         Position position = new Position();
-        position.setName("OPERATIVE");
+        position.setName("Software Lead");
         positionRepository.save(position);
+
+        Position position2 = new Position();
+        position2.setName("Executive User Experience Chef");
+        positionRepository.save(position2);
+
+        Position position3 = new Position();
+        position3.setName("Chief Technology Officer");
+        positionRepository.save(position3);
 
         // contract
         Contract contract = new Contract();
-        contract.setEmployee(john);
+        contract.setEmployee(valentin);
         Calendar contracInitDate = Calendar.getInstance();
         contracInitDate.set(2010, Calendar.JANUARY, 1);
         contract.setInitDate(contracInitDate.getTime());
-        contract.setPosition(position);
-
-        john.getContracts().add(contract);
-        employeeRepository.save(john);
+        contract.setPosition(position3);
+        valentin.getContracts().add(contract);
+        employeeRepository.save(valentin);
         contractRepository.save(contract);
+
+        Contract contract2 = new Contract();
+        contract2.setEmployee(anabel);
+        Calendar contracInitDate2 = Calendar.getInstance();
+        contracInitDate2.set(2011, Calendar.JULY, 1);
+        contract2.setInitDate(contracInitDate2.getTime());
+        contract2.setPosition(position);
+        anabel.getContracts().add(contract2);
+        employeeRepository.save(anabel);
+        contractRepository.save(contract2);
+
+        Contract contract3 = new Contract();
+        contract3.setEmployee(jlaw);
+        Calendar contracInitDate3 = Calendar.getInstance();
+        contracInitDate3.set(2016, Calendar.MARCH, 1);
+        contract3.setInitDate(contracInitDate3.getTime());
+        contract3.setPosition(position2);
+        jlaw.getContracts().add(contract3);
+        employeeRepository.save(jlaw);
+        contractRepository.save(contract3);
+
+        Contract contract4 = new Contract();
+        contract4.setEmployee(mila);
+        Calendar contracInitDate4 = Calendar.getInstance();
+        contracInitDate4.set(2014, Calendar.MAY, 11);
+        contract4.setInitDate(contracInitDate4.getTime());
+        contract4.setPosition(position);
+        mila.getContracts().add(contract4);
+        employeeRepository.save(mila);
+        contractRepository.save(contract4);
+
+        Contract contract5 = new Contract();
+        contract5.setEmployee(kylie);
+        Calendar contracInitDate5 = Calendar.getInstance();
+        contracInitDate5.set(2017, Calendar.FEBRUARY, 28);
+        contract5.setInitDate(contracInitDate5.getTime());
+        contract5.setPosition(position);
+        kylie.getContracts().add(contract5);
+        employeeRepository.save(kylie);
+        contractRepository.save(contract5);
 
     }
 

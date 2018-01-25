@@ -3,6 +3,8 @@
  */
 package com.dharbor.industrialsecurity.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -11,11 +13,13 @@ public class Contract extends ModelBase {
     @Column(name = "idempleado", updatable = false, insertable = false)
     private Long employeeId;
 
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    @JoinColumn(name = "idempleado", nullable = false, updatable = false)
+    @ManyToOne
+    @JoinColumn(name = "idempleado")
+    @JsonIgnoreProperties("contracts")
     private Employee employee;
 
-    @OneToOne(optional = false)
+    @ManyToOne
+    @JoinColumn(name = "idposition")
     private Position position;
 
     @Temporal(TemporalType.DATE)
