@@ -19,4 +19,8 @@ public class ItemService {
         itemRepository.findAll().iterator().forEachRemaining(items::add);
         return items;
     }
+
+    public Item getItem(Long id){
+        return itemRepository.findOne(id);
+    }
 }
