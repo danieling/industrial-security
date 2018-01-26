@@ -24,4 +24,9 @@ public class EmployeeCtrl {
     public Employee getEmployee(@PathVariable Long id){
         return employeeServ.getEmployee(id);
     }
+
+    @RequestMapping("/employees/featured")
+    public Employee getEmployeeFeatured(){
+        return employeeServ.getEmployeeFeatured();
+    }
 }

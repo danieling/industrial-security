@@ -22,4 +22,8 @@ public class EmployeeServ {
     public Employee getEmployee(Long id){
         return employeeRepository.findOne(id);
     }
+
+    public Employee getEmployeeFeatured(){
+        return employeeRepository.findByFeaturedIsTrue();
+    }
 }

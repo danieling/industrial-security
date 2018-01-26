@@ -25,4 +25,7 @@ public class ItemService {
     }
 
 
+    public Item getItemFeatured() {
+        return itemRepository.findByFeaturedIsTrue();
+    }
 }

@@ -19,6 +19,11 @@ public class ItemCtrl {
         return itemService.getItems();
     }
 
+    @RequestMapping("/items/featured")
+    public Item getItemFeatured(){
+        return itemService.getItemFeatured();
+    }
+
     @RequestMapping("/items/{id}")
     public Item getItem(@PathVariable Long id){
         return itemService.getItem(id);

@@ -91,7 +91,6 @@ public class DevBootstrap implements ApplicationListener<ContextRefreshedEvent> 
         ink.setCode("INK");
         ink.setName("INK");
         ink.setSubCategory(rawMaterialSubCategory);
-        ink.setFeatured(true);
         ink.setImage("/assets/images/ink.jpg");
         ink.setCategory(ink.getSubCategory().getCategory().getName());
         ink.setLabel("for better writting");
@@ -104,8 +103,8 @@ public class DevBootstrap implements ApplicationListener<ContextRefreshedEvent> 
         audio.setCode("AUP");
         audio.setName("Audio protector");
         audio.setSubCategory(safetySubCategory);
-        audio.setFeatured(false);
-        audio.setImage("/assets/images/audio.jpg");
+        audio.setFeatured(true);
+        audio.setImage("/assets/images/audio2.jpg");
         audio.setCategory(audio.getSubCategory().getCategory().getName());
         audio.setLabel("noise filter");
         audio.setPrice("12.90");
@@ -190,22 +189,6 @@ public class DevBootstrap implements ApplicationListener<ContextRefreshedEvent> 
         comment.setItem(ink);
         commentRepository.save(comment);
 
-        comment2 = new Comment();
-        comment2.setRating(4);
-        comment2.setComment("Gives me a lot of confort, I wish I could get my mother-in-law to have it!");
-        comment2.setAuthor("Tania Barrancos");
-        comment2.setDate(fromISO8601UTC("2014-09-05T17:57:28.556094Z"));
-        comment2.setItem(ink);
-        commentRepository.save(comment2);
-
-        comment3 = new Comment();
-        comment3.setRating(3);
-        comment3.setComment("Use it, just use it!");
-        comment3.setAuthor("Michael Rodriguez");
-        comment3.setDate(fromISO8601UTC("2015-02-13T17:57:28.556094Z"));
-        comment3.setItem(ink);
-        commentRepository.save(comment3);
-
         comment4 = new Comment();
         comment4.setRating(4);
         comment4.setComment("Ultimate, Reaching for the stars!");
@@ -214,23 +197,9 @@ public class DevBootstrap implements ApplicationListener<ContextRefreshedEvent> 
         comment4.setItem(ink);
         commentRepository.save(comment4);
 
-        comment5 = new Comment();
-        comment5.setRating(2);
-        comment5.setComment("It is simply very nice!");
-        comment5.setAuthor("50 Cent");
-        comment5.setDate(fromISO8601UTC("2011-12-02T17:57:28.556094Z"));
-        comment5.setItem(ink);
-        commentRepository.save(comment5);
+
 
         // Comments
-
-        comment = new Comment();
-        comment.setRating(5);
-        comment.setComment("Imagine all safety PPE in SSI!");
-        comment.setAuthor("Mr T");
-        comment.setDate(fromISO8601UTC("2012-10-16T17:57:28.556094Z"));
-        comment.setItem(audio);
-        commentRepository.save(comment);
 
         comment2 = new Comment();
         comment2.setRating(4);
@@ -248,13 +217,6 @@ public class DevBootstrap implements ApplicationListener<ContextRefreshedEvent> 
         comment3.setItem(audio);
         commentRepository.save(comment3);
 
-        comment4 = new Comment();
-        comment4.setRating(4);
-        comment4.setComment("Ultimate, Reaching for the stars!");
-        comment4.setAuthor("Diana Cardozo");
-        comment4.setDate(fromISO8601UTC("2013-12-02T17:57:28.556094Z"));
-        comment4.setItem(audio);
-        commentRepository.save(comment4);
 
         comment5 = new Comment();
         comment5.setRating(2);
@@ -265,14 +227,6 @@ public class DevBootstrap implements ApplicationListener<ContextRefreshedEvent> 
         commentRepository.save(comment5);
 
         // Comments
-
-        comment = new Comment();
-        comment.setRating(5);
-        comment.setComment("Imagine all safety PPE in SSI!");
-        comment.setAuthor("Mr T");
-        comment.setDate(fromISO8601UTC("2012-10-16T17:57:28.556094Z"));
-        comment.setItem(glasses);
-        commentRepository.save(comment);
 
         comment2 = new Comment();
         comment2.setRating(4);
@@ -316,14 +270,6 @@ public class DevBootstrap implements ApplicationListener<ContextRefreshedEvent> 
         comment.setItem(gloves);
         commentRepository.save(comment);
 
-        comment2 = new Comment();
-        comment2.setRating(4);
-        comment2.setComment("Gives me a lot of confort, I wish I could get my mother-in-law to have it!");
-        comment2.setAuthor("Tania Barrancos");
-        comment2.setDate(fromISO8601UTC("2014-09-05T17:57:28.556094Z"));
-        comment2.setItem(gloves);
-        commentRepository.save(comment2);
-
         comment3 = new Comment();
         comment3.setRating(3);
         comment3.setComment("Use it, just use it!");
@@ -340,19 +286,10 @@ public class DevBootstrap implements ApplicationListener<ContextRefreshedEvent> 
         comment4.setItem(gloves);
         commentRepository.save(comment4);
 
-        comment5 = new Comment();
-        comment5.setRating(2);
-        comment5.setComment("It is simply very nice!");
-        comment5.setAuthor("50 Cent");
-        comment5.setDate(fromISO8601UTC("2011-12-02T17:57:28.556094Z"));
-        comment5.setItem(gloves);
-        commentRepository.save(comment5);
-
         // Valentin Employee
         Employee valentin = new Employee();
         valentin.setFirstName("Valentin");
-        valentin.setLastName("Laime");
-        valentin.setImage("/assets/images/valentin.jpg");
+        valentin.setLastName("Laime");valentin.setImage("/assets/images/valentin.jpg");
         valentin.setJobCode("CEO");
         valentin.setFeatured(true);
         valentin.setJobDescription("El CEO, esta encargado de dirigir la empresa para conseguir los objetivos alineados con las estrategias de la empresa. Su rol fundamental es marcar las estrategias a seguir cuidando que los indicadores relacionados se cumplan y de ser necesario proponer nuevas estrategias que permitan a la empresa adaptarse al mercado.");
@@ -409,6 +346,7 @@ public class DevBootstrap implements ApplicationListener<ContextRefreshedEvent> 
         contracInitDate.set(2010, Calendar.JANUARY, 1);
         contract.setInitDate(contracInitDate.getTime());
         contract.setPosition(position3);
+        valentin.setJobPosition(position3.getName());
         valentin.getContracts().add(contract);
         employeeRepository.save(valentin);
         contractRepository.save(contract);
@@ -419,6 +357,7 @@ public class DevBootstrap implements ApplicationListener<ContextRefreshedEvent> 
         contracInitDate2.set(2011, Calendar.JULY, 1);
         contract2.setInitDate(contracInitDate2.getTime());
         contract2.setPosition(position);
+        anabel.setJobPosition(position.getName());
         anabel.getContracts().add(contract2);
         employeeRepository.save(anabel);
         contractRepository.save(contract2);
@@ -429,6 +368,7 @@ public class DevBootstrap implements ApplicationListener<ContextRefreshedEvent> 
         contracInitDate3.set(2016, Calendar.MARCH, 1);
         contract3.setInitDate(contracInitDate3.getTime());
         contract3.setPosition(position2);
+        jlaw.setJobPosition(position2.getName());
         jlaw.getContracts().add(contract3);
         employeeRepository.save(jlaw);
         contractRepository.save(contract3);
@@ -439,6 +379,7 @@ public class DevBootstrap implements ApplicationListener<ContextRefreshedEvent> 
         contracInitDate4.set(2014, Calendar.MAY, 11);
         contract4.setInitDate(contracInitDate4.getTime());
         contract4.setPosition(position);
+        mila.setJobPosition(position.getName());
         mila.getContracts().add(contract4);
         employeeRepository.save(mila);
         contractRepository.save(contract4);
@@ -449,6 +390,7 @@ public class DevBootstrap implements ApplicationListener<ContextRefreshedEvent> 
         contracInitDate5.set(2017, Calendar.FEBRUARY, 28);
         contract5.setInitDate(contracInitDate5.getTime());
         contract5.setPosition(position);
+        kylie.setJobPosition(position.getName());
         kylie.getContracts().add(contract5);
         employeeRepository.save(kylie);
         contractRepository.save(contract5);
