@@ -3,9 +3,7 @@ package com.dharbor.industrialsecurity.controller;
 import com.dharbor.industrialsecurity.model.Employee;
 import com.dharbor.industrialsecurity.services.EmployeeServ;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -28,5 +26,20 @@ public class EmployeeCtrl {
     @RequestMapping("/employees/featured")
     public Employee getEmployeeFeatured(){
         return employeeServ.getEmployeeFeatured();
+    }
+
+    @RequestMapping(value = "/employees", method = RequestMethod.POST)
+    public void addEmployee(@RequestBody Employee employee){
+        employeeServ.addEmployee(employee);
+    }
+
+    @RequestMapping(value = "/employees/{id}", method = RequestMethod.PUT)
+    public void updateEmployee(@RequestBody Employee employee){
+        employeeServ.addEmployee(employee);
+    }
+
+    @RequestMapping(value = "/employees/{id}", method = RequestMethod.DELETE)
+    public void delEmployee(@PathVariable Long id){
+        employeeServ.delEmployee(id);
     }
 }

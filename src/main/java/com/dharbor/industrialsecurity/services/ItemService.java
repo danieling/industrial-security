@@ -28,4 +28,12 @@ public class ItemService {
     public Item getItemFeatured() {
         return itemRepository.findByFeaturedIsTrue();
     }
+
+    public void addItem(Item item){
+        itemRepository.save(item);
+    }
+
+    public void delItem(Long id){
+        itemRepository.delete(id);
+    }
 }

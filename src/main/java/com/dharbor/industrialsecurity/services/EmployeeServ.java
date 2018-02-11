@@ -26,4 +26,12 @@ public class EmployeeServ {
     public Employee getEmployeeFeatured(){
         return employeeRepository.findByFeaturedIsTrue();
     }
+
+    public void addEmployee(Employee employee){
+        employeeRepository.save(employee);
+    }
+
+    public void delEmployee(Long id_emp){
+        employeeRepository.delete(id_emp);
+    }
 }
